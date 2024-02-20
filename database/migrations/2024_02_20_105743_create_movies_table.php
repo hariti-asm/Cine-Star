@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('actors')->nullable(); 
             $table->string('producer')->nullable(); 
             $table->string('running_time')->nullable(); 
+            $table->string('image')->nullable(); 
+            $table->string('publication_date');
+            $table->integer('rating')->nullable();
+            $table->string('quality')->nullable();
+
+
 
             $table->timestamps();
         });
