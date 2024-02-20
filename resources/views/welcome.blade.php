@@ -84,7 +84,7 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="./index.html" class="navbar-link">Home</a>
+            <a href="./index.html" class="navbar-link">Dashboard</a>
           </li>
 
           <li>
@@ -1028,7 +1028,7 @@
           <ul class="footer-list">
 
             <li>
-              <a href="./index.html" class="footer-link">Home</a>
+              <a href="./index.html" class="footer-link">Dashboard</a>
             </li>
 
             <li>
