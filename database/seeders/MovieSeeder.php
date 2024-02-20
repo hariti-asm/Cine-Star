@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Movie;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class MovieSeeder extends Seeder
 {
@@ -52,7 +54,7 @@ class MovieSeeder extends Seeder
                 'quality' => '2K',
             ],
             [
-                'title' => 'The Unbearable Weight of Massive Talent',
+                'title' => ' Unbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 4, 
                 'actors' => 'Actor 7, Actor 8',
@@ -160,7 +162,7 @@ class MovieSeeder extends Seeder
                 'quality' => 'HD',
             ],
             [
-                'title' => 'The Unbearable Weight of Massive Talent',
+                'title' => 'The nbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 1, 
                 'actors' => 'Actor 7, Actor 8',
@@ -173,6 +175,17 @@ class MovieSeeder extends Seeder
             ],
         ];
     
+
+foreach ($movies as &$movie) {
+    $slug = Str::slug($movie['title']);
+    $uniqueSlug = $slug;
+    $counter = 1;
+    while (Movie::where('slug', $uniqueSlug)->exists()) {
+        $uniqueSlug = $slug . '-' . $counter++;
+    }
+    $movie['slug'] = $uniqueSlug;
+    Log::info("Title: {$movie['title']}, Slug: {$movie['slug']}");
+}
 
         Movie::insert($movies);
     }

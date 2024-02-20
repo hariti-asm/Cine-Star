@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::disableForeignKeyConstraints();
-                Schema::create('movies', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             
             $table->id();
             $table->string('title');
             $table->text('description');
-            // $table->string('genre');
             $table->foreignId('genre_id')->constrained()->nullable();
             $table->string('actors')->nullable(); 
             $table->string('producer')->nullable(); 
@@ -26,9 +25,7 @@ return new class extends Migration
             $table->string('publication_date');
             $table->integer('rating')->nullable();
             $table->string('quality')->nullable();
-
-
-
+            $table->string('slug')->unique()->nullable(); 
             $table->timestamps();
         });
     }
