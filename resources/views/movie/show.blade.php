@@ -108,17 +108,13 @@
                             </div>
               
                             <button class="btn btn-primary">
-                              <ion-icon name="play"></ion-icon>
+                              {{-- <ion-icon name="play"></ion-icon> --}}
               
-                              <span>Watch Now</span>
+                              <span>Book Movie</span>
                             </button>
               
                           </div>
-                          <a href="./images/movie-4.png" download class="download-btn">
-                            <span>Download</span>
-              
-                            <ion-icon name="download-outline"></ion-icon>
-                          </a>
+                          
 
                         <!-- Add your download button here -->
 
