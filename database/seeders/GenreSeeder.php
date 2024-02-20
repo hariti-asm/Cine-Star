@@ -19,6 +19,9 @@ class GenreSeeder extends Seeder
             ['name' => 'Action'],
             ['name' => 'Comedy'],
             ['name' => 'Drama'],
+            ['name' => 'Tv Series'],
+
+
         ];
 
         Genre::insert($genres);
