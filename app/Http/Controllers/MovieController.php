@@ -40,10 +40,17 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(string $id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $genre = Genre::findOrFail(4);
+
+        $tvSeries = $genre->movies()->take(4)->get();
+
+        return view('movie.show', compact('movie','tvSeries'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

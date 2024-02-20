@@ -250,16 +250,14 @@
             @foreach($movies as $movie)
             <li>
                 <div class="movie-card">
-                    {{-- {{ route('movie.details', $movie->id) }} --}}
-                    <a href="">
+                    <a href="{{ route('movie.show', $movie->id) }}">
                         <figure class="card-banner">
                             <img src="/{{ ($movie->image) }}" alt="{{ $movie->title }} movie poster">
                         </figure>
                     </a>
         
                     <div class="title-wrapper">
-                        {{-- {{ route('movie.details', $movie->id) }} --}}
-                        <a href="">
+                        <a href="{{ route('movie.show', $movie->id) }}">
                             <h3 class="card-title">{{ $movie->title }}</h3>
                         </a>
         
@@ -394,14 +392,17 @@
                 @foreach($topRatedMovies as $movie)
                 <li>
                     <div class="movie-card">
-                        <a href="./movie-details.html">
+                        <a href="
+                        {{ route('movie.show', $movie->id) }}
+                    ">
                             <figure class="card-banner">
                                 <img src="{{ $movie->image }}" alt="{{ $movie->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                            <a href="./movie-details.html">
+                            <a href="                        {{ route('movie.show', $movie->id) }}
+                                ">
                                 <h3 class="card-title">{{ $movie->title }}</h3>
                             </a>
     
@@ -447,14 +448,16 @@
                 @foreach($tvSeries as $tvSeries)
                 <li>
                     <div class="movie-card">
-                        <a href="./movie-details.html">
+                        <a href="                        {{ route('movie.show', $movie->id) }}
+                            ">
                             <figure class="card-banner">
                                 <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                            <a href="./movie-details.html">
+                            <a href="                        {{ route('movie.show', $movie->id) }}
+                                ">
                                 <h3 class="card-title">{{ $tvSeries->title }}</h3>
                             </a>
     

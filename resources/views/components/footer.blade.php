@@ -6,7 +6,7 @@
         <div class="footer-brand-wrapper">
 
           <a href="./index.html" class="logo">
-            <img src="images/logo.svg" alt="Filmlane logo">
+            <img src="../images/logo.svg" alt="Filmlane logo">
           </a>
 
           <ul class="footer-list">
