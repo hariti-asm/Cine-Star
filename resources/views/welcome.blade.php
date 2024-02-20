@@ -1141,7 +1141,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="/js/script.js"></script>
 
   <!-- 
     - ionicon link
