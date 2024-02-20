@@ -13,12 +13,13 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies=Movie::take(4)->get();
+        $movies = Movie::take(4)->get();
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
-        $genre = Genre::findOrFail(4); 
-        $tvSeries = $genre->movies;
-        return view("welcome",compact('movies','topRatedMovies','tvSeries'));
+        $genre = Genre::findOrFail(4);
+        $tvSeries = $genre->movies()->take(4)->get();
+        return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
