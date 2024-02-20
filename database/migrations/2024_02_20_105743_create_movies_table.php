@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('genre');
             $table->string('actors')->nullable(); 
             $table->string('producer')->nullable(); 
+            $table->string('running_time')->nullable(); 
+
             $table->timestamps();
         });
     }
