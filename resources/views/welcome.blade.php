@@ -46,20 +46,10 @@
           <ion-icon name="search-outline"></ion-icon>
         </button>
 
-        <div class="lang-wrapper">
-          <label for="language">
-            <ion-icon name="globe-outline"></ion-icon>
-          </label>
-
-          <select name="language" id="language">
-            <option value="en">EN</option>
-            <option value="au">AU</option>
-            <option value="ar">AR</option>
-            <option value="tu">TU</option>
-          </select>
-        </div>
+      
 
         <button class="btn btn-primary">Sign in</button>
+        <button class="btn btn-primary">Sign up</button>
 
       </div>
 
@@ -328,7 +318,7 @@
 
                   <div class="card-icon">
                     <ion-icon name="tv"></ion-icon>
-                  </div>
+                           </div>
 
                   <div class="card-content">
                     <h3 class="h3 card-title">Enjoy on Your TV.</h3>
