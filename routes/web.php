@@ -16,9 +16,10 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [MovieController::class, 'index']);
-
+Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
 
 Route::get('/dashboard', function () {
+
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css"> 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
   <title>Filmlane - Best movie collections</title>
 
   <!-- 
@@ -39,29 +43,35 @@
       <a href="./index.html" class="logo">
         <img src="images/logo.svg" alt="Filmlane logo">
       </a>
-
-      <div class="header-actions">
-
-        <button class="search-btn">
-          <ion-icon name="search-outline"></ion-icon>
-        </button>
-
-        <div class="lang-wrapper">
-          <label for="language">
-            <ion-icon name="globe-outline"></ion-icon>
-          </label>
-
-          <select name="language" id="language">
-            <option value="en">EN</option>
-            <option value="au">AU</option>
-            <option value="ar">AR</option>
-            <option value="tu">TU</option>
-          </select>
-        </div>
-
-        <button class="btn btn-primary">Sign in</button>
-
+    
+      <div class="search-btn">
+        <form class="max-w-lg mx-auto flex" method="GET" action="{{ route('movies.search') }}">
+          <input type="search"  name="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-100 bg-transparent border border-gray-900 rounded-e-lg border-s-gray-900 border-s-2 focus:ring-gray-100 focus:border-gray-100 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500" placeholder="" 
+          value="{{request('search')}}" />
+          <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-transparent rounded-e-lg border border-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800">
+          </form>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 20 20">
+              
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+            <span class="sr-only">Search</span>
+          </button>
       </div>
+      
+
+  <!-- Language Selection -->
+  <div class="lang-wrapper">
+    <select name="language" id="language" class="language-select">
+      <option value="en">EN</option>
+      <option value="au">AU</option>
+      <option value="ar">AR</option>
+      <option value="tu">TU</option>
+    </select>
+  </div>
+
+  <!-- Sign-in Button -->
+  <button class="btn btn-primary">Sign in</button>
+</div>
 
       <button class="menu-open-btn" data-menu-open-btn>
         <ion-icon name="reorder-two"></ion-icon>
@@ -82,7 +92,7 @@
         </div>
 
         <ul class="navbar-list">
-
+{{-- Genre --}}
           <li>
             <a href="./index.html" class="navbar-link">Dashboard</a>
           </li>

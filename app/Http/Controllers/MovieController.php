@@ -19,19 +19,27 @@ class MovieController extends Controller
         $tvSeries = $genre->movies()->take(4)->get();
         return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
     }
+
+    public function search()
+    {
+        $query = Movie::query();
+        $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
+        $genre = Genre::findOrFail(4);
+        $tvSeries = $genre->movies()->take(4)->get();
+        if ($search = request('search')) {
+            $query->where('title', 'like', '%'. $search . '%');
+        }
+        $movies = $query->get();
+        return view("welcome", compact('movies','topRatedMovies', 'tvSeries'));
+    }
     
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+   
     public function store(Request $request)
     {
         //
