@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cinema_id')->constrained();
             $table->string('seat_number');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

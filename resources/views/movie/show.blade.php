@@ -70,14 +70,12 @@
                     </div>
 
                     <div class="flex flex-wrap gap-2">
-                        @for ($i = 52; $i >= 1; $i--)
-                            @if (($i - 1) % 9 == 0)
-                                <div class="col-span-2"></div>
-                            @endif
-                            <div class="w-12 h-12 flex justify-center items-center bg-gray-200 rounded-lg">
-                                {{ sprintf("%02d", $i) }}
+
+                            <div class="w-12 h-12 flex justify-center items-center  rounded-lg">
+                                <button>
+                                <svg width="31" height="27" viewBox="0 0 31 27" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect y="18.1118" width="30.5217" height="8.8882" rx="4.4441" fill="#D9D9D9"/> <rect x="4.69565" width="21.1304" height="20.4596" rx="3" fill="#D9D9D9"/> </svg>
+                                </button>
                             </div>
-                        @endfor
                     </div>
 
 
