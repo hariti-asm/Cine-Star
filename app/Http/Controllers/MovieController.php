@@ -41,6 +41,7 @@ class MovieController extends Controller
      * Display the specified resource.
      */
 
+<<<<<<< HEAD
     public function show(string $id)
     {
         $movie = Movie::findOrFail($id);
@@ -51,6 +52,18 @@ class MovieController extends Controller
         return view('movie.show', compact('movie','tvSeries'));
     }
 
+=======
+     public function show(string $slug)
+     {
+         $movie = Movie::where('slug', $slug)->firstOrFail();
+         $genre = Genre::findOrFail(4);
+         $tvSeries = $genre->movies()->take(4)->get();
+     
+         return view('movie.show', compact('movie', 'tvSeries'));
+     }
+     
+    
+>>>>>>> 1b9b8609691705154b4988718bd7e510c933af1a
 
     /**
      * Show the form for editing the specified resource.

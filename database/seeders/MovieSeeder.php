@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Movie;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class MovieSeeder extends Seeder
 {
@@ -16,13 +18,13 @@ class MovieSeeder extends Seeder
     {
         $movies = [
             [
-                'title' => 'The Northman',
+                'title' => 'The Super hero',
                 'description' => 'Description of The Northman.',
                 'genre_id' => 1, 
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 137,
-                'image' => 'images/upcoming-1.png',
+                'image' => 'images/series-1.png',
                 'publication_date' => '2022-01-01',
                 'rating' => 8.5,
                 'quality' => 'HD',
@@ -34,7 +36,7 @@ class MovieSeeder extends Seeder
                 'actors' => 'Actor 3, Actor 4',
                 'producer' => 'Producer 2',
                 'running_time' => 126,
-                'image' => 'images/upcoming-2.png',
+                'image' => 'images/series-2.png',
                 'publication_date' => '2022-01-15',
                 'rating' => null, 
                 'quality' => '4K',
@@ -52,13 +54,13 @@ class MovieSeeder extends Seeder
                 'quality' => '2K',
             ],
             [
-                'title' => 'The Unbearable Weight of Massive Talent',
+                'title' => ' Unbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 4, 
                 'actors' => 'Actor 7, Actor 8',
                 'producer' => 'Producer 4',
                 'running_time' => 107,
-                'image' => 'images/upcoming-4.png',
+                'image' => 'images/series-3.png',
                 'publication_date' => '2022-02-15',
                 'rating' => null, 
                 'quality' => 'HD',
@@ -70,7 +72,7 @@ class MovieSeeder extends Seeder
                 'actors' => 'Actor 1, Actor 2',
                 'producer' => 'Producer 1',
                 'running_time' => 122,
-                'image' => 'images/movie-1.png',
+                'image' => 'images/series-4.png',
                 'publication_date' => '2022-01-01',
                 'rating' => 7.8, 
                 'quality' => '2K',
@@ -160,7 +162,7 @@ class MovieSeeder extends Seeder
                 'quality' => 'HD',
             ],
             [
-                'title' => 'The Unbearable Weight of Massive Talent',
+                'title' => 'The nbearable Weight of Massive Talent',
                 'description' => 'Description of The Unbearable Weight of Massive Talent.',
                 'genre_id' => 1, 
                 'actors' => 'Actor 7, Actor 8',
@@ -173,6 +175,17 @@ class MovieSeeder extends Seeder
             ],
         ];
     
+
+foreach ($movies as &$movie) {
+    $slug = Str::slug($movie['title']);
+    $uniqueSlug = $slug;
+    $counter = 1;
+    while (Movie::where('slug', $uniqueSlug)->exists()) {
+        $uniqueSlug = $slug . '-' . $counter++;
+    }
+    $movie['slug'] = $uniqueSlug;
+    Log::info("Title: {$movie['title']}, Slug: {$movie['slug']}");
+}
 
         Movie::insert($movies);
     }

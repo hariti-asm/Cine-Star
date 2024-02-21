@@ -46,20 +46,10 @@
           <ion-icon name="search-outline"></ion-icon>
         </button>
 
-        <div class="lang-wrapper">
-          <label for="language">
-            <ion-icon name="globe-outline"></ion-icon>
-          </label>
-
-          <select name="language" id="language">
-            <option value="en">EN</option>
-            <option value="au">AU</option>
-            <option value="ar">AR</option>
-            <option value="tu">TU</option>
-          </select>
-        </div>
+      
 
         <button class="btn btn-primary">Sign in</button>
+        <button class="btn btn-primary">Sign up</button>
 
       </div>
 
@@ -250,15 +240,15 @@
             @foreach($movies as $movie)
             <li>
                 <div class="movie-card">
-                    <a href="{{ route('movie.show', $movie->id) }}">
-                        <figure class="card-banner">
+                  <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+                    <figure class="card-banner">
                             <img src="/{{ ($movie->image) }}" alt="{{ $movie->title }} movie poster">
                         </figure>
                     </a>
         
                     <div class="title-wrapper">
-                        <a href="{{ route('movie.show', $movie->id) }}">
-                            <h3 class="card-title">{{ $movie->title }}</h3>
+                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+                        <h3 class="card-title">{{ $movie->title }}</h3>
                         </a>
         
                         <time datetime="{{ $movie->publication_date }}">{{ date('Y', strtotime($movie->publication_date)) }}</time>
@@ -328,7 +318,7 @@
 
                   <div class="card-icon">
                     <ion-icon name="tv"></ion-icon>
-                  </div>
+                           </div>
 
                   <div class="card-content">
                     <h3 class="h3 card-title">Enjoy on Your TV.</h3>
@@ -392,17 +382,15 @@
                 @foreach($topRatedMovies as $movie)
                 <li>
                     <div class="movie-card">
-                        <a href="
-                        {{ route('movie.show', $movie->id) }}
-                    ">
-                            <figure class="card-banner">
+                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+                        <figure class="card-banner">
                                 <img src="{{ $movie->image }}" alt="{{ $movie->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                            <a href="                        {{ route('movie.show', $movie->id) }}
-                                ">
+                          <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+
                                 <h3 class="card-title">{{ $movie->title }}</h3>
                             </a>
     
@@ -448,16 +436,16 @@
                 @foreach($tvSeries as $tvSeries)
                 <li>
                     <div class="movie-card">
-                        <a href="                        {{ route('movie.show', $movie->id) }}
-                            ">
+                      <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+
                             <figure class="card-banner">
                                 <img src="{{ $tvSeries->image }}" alt="{{ $tvSeries->title }} movie poster">
                             </figure>
                         </a>
     
                         <div class="title-wrapper">
-                            <a href="                        {{ route('movie.show', $movie->id) }}
-                                ">
+                          <a href="{{ route('movie.show', ['slug' => $movie->slug]) }}">
+
                                 <h3 class="card-title">{{ $tvSeries->title }}</h3>
                             </a>
     
