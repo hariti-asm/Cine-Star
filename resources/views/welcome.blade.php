@@ -240,24 +240,21 @@
 
             <ul class="filter-list">
 
+              @foreach ($genres as $genre)
               <li>
-                <button class="filter-btn">Movies</button>
+                  <button class="filter-btn">{{ $genre->name }}</button>
               </li>
-
-              <li>
-                <button class="filter-btn">TV Shows</button>
-              </li>
-
-              <li>
-                <button class="filter-btn">Anime</button>
-              </li>
-
-            </ul>
-
+            @endforeach
+          
           </div>
 
           <ul class="movies-list has-scrollbar">
-            @foreach($movies as $movie)
+            @if($movies->isEmpty() && request('search'))
+        <p class="text-gray-100  font-bold"  >no movies found for search:: <span style="color: red;">{{ request('search') }}</span></p>
+       @else
+    <!-- Affichage des films -->
+    @foreach ($movies as $movie)
+
             <li>
                 <div class="movie-card">
                     {{-- {{ route('movie.details', $movie->id) }} --}}
@@ -292,6 +289,7 @@
                 </div>
             </li>
             @endforeach
+            @endif
         </ul>
         
 

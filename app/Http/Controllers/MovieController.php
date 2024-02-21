@@ -16,8 +16,9 @@ class MovieController extends Controller
         $movies = Movie::take(4)->get();
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genre = Genre::findOrFail(4);
+        $genres = Genre::all();
         $tvSeries = $genre->movies()->take(4)->get();
-        return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
+        return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries','genres'));
     }
 
     public function search()
@@ -25,15 +26,14 @@ class MovieController extends Controller
         $query = Movie::query();
         $topRatedMovies = Movie::orderByDesc('rating')->take(8)->get();
         $genre = Genre::findOrFail(4);
+        $genres = Genre::all();
         $tvSeries = $genre->movies()->take(4)->get();
         if ($search = request('search')) {
             $query->where('title', 'like', '%'. $search . '%');
         }
         $movies = $query->get();
-        return view("welcome", compact('movies','topRatedMovies', 'tvSeries'));
+        return view("welcome", compact('movies','topRatedMovies', 'tvSeries','genres'));
     }
-    
-
     public function create()
     {
         //
