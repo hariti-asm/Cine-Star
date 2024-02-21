@@ -19,7 +19,7 @@ class MovieController extends Controller
         $tvSeries = $genre->movies()->take(4)->get();
         return view("welcome", compact('movies', 'topRatedMovies', 'tvSeries'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +50,7 @@ class MovieController extends Controller
 
         return view('movie.show', compact('movie','tvSeries'));
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
