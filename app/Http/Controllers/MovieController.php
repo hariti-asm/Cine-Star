@@ -41,29 +41,17 @@ class MovieController extends Controller
      * Display the specified resource.
      */
 
-<<<<<<< HEAD
-    public function show(string $id)
-    {
-        $movie = Movie::findOrFail($id);
-        $genre = Genre::findOrFail(4);
 
-        $tvSeries = $genre->movies()->take(4)->get();
-
-        return view('movie.show', compact('movie','tvSeries'));
-    }
-
-=======
-     public function show(string $slug)
+     public function show(string $slug): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
      {
          $movie = Movie::where('slug', $slug)->firstOrFail();
          $genre = Genre::findOrFail(4);
          $tvSeries = $genre->movies()->take(4)->get();
-     
+
          return view('movie.show', compact('movie', 'tvSeries'));
      }
-     
-    
->>>>>>> 1b9b8609691705154b4988718bd7e510c933af1a
+
+
 
     /**
      * Show the form for editing the specified resource.
